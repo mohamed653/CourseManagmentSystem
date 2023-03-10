@@ -1,4 +1,5 @@
 ﻿using CourseApp.Models;
+using Microsoft.EntityFrameworkCore.Proxies;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -19,7 +20,8 @@ namespace CourseApp.Controllers
         }
         public IActionResult GetCourses()
         {
-            List<Course> courses = _context.Courses.ToList();
+            var courses = _context.Courses.ToList();
+            
             return View(courses);
         }
         public IActionResult Privacy()

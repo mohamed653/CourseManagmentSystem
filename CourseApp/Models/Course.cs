@@ -12,6 +12,7 @@ public partial class Course
     public DateTime CreationDate { get; set; }
 
     public string? Description { get; set; }
+    public string? Video { get; set; }
 
     public int CategoryId { get; set; }
 
