@@ -6,17 +6,22 @@ namespace CourseApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger)
+        private readonly CoursesDbContext _context;
+        public HomeController(CoursesDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
+
 
         public IActionResult Index()
         {
             return View();
         }
-     
+        public IActionResult GetCourses()
+        {
+            List<Course> courses = _context.Courses.ToList();
+            return View(courses);
+        }
         public IActionResult Privacy()
         {
             return View();

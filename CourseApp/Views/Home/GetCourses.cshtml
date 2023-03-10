@@ -1,0 +1,23 @@
+﻿ @model List<Course>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<table class="table table-border teble-hover">
+    <tr>
+        <th>Id</th>
+        <th>Course Name</th>
+        <th>CreationDate</th>
+        <th>CategoryId</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+        	<td>@item.Id</td>
+        	<td>@item.Name</td>
+        	<td>@item.CreationDate</td>
+        	<td>@item.CategoryId</td>
+        </tr>
+    }
+</table>
