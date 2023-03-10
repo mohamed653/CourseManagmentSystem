@@ -7,7 +7,6 @@ namespace CourseApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -17,7 +16,7 @@ namespace CourseApp.Controllers
         {
             return View();
         }
-
+     
         public IActionResult Privacy()
         {
             return View();
