@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CourseApp.Models;
-
-public partial class Category
+namespace CourseApp.Models
 {
-    public int Id { get; set; }
+    public partial class Category
+    {
+        public Category()
+        {
+            Courses = new HashSet<Course>();
+            InverseParent = new HashSet<Category>();
+        }
 
-    public string Name { get; set; } = null!;
+        public int Id { get; set; }
+        public string Name { get; set; } = null!;
+        public int? ParentId { get; set; }
 
-    public int ParentId { get; set; }
-
-    public virtual ICollection<Course> Courses { get; } = new List<Course>();
-
-    public virtual ICollection<Category> InverseParent { get; } = new List<Category>();
-
-    public virtual Category Parent { get; set; } = null!;
+        public virtual Category? Parent { get; set; }
+        public virtual ICollection<Course> Courses { get; set; }
+        public virtual ICollection<Category> InverseParent { get; set; }
+    }
 }
